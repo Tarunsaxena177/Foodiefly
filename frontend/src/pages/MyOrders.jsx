@@ -14,24 +14,35 @@ function MyOrders() {
   const { userData, myOrders, socket } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const socketRef = useRef(null); // useRef keeps the same socket across renders 
+  useGetCurrentUser(); 
+  useUpdateLocation(); 
+  useGetCity(); 
+  useGetMyshop(); 
+  useGetShopByCity(); 
+  useGetItemsByCity(); 
+  useGetMyOrders();
+  
   useEffect(() => {
-    socket?.on("newOrder", (data) => {
-      if (data.shopOrders?.owner._id == userData._id) {
-        dispatch(setMyOrders([data, ...myOrders]));
+    // 1. Establish the connection to the server
+    const socketInstance = io(serverUrl, { withCredentials: true });
+
+    // 2. Store the socket instance in your application state (e.g., Redux, Context)
+    dispatch(setSocket(socketInstance));
+
+    // 3. Listen for a successful connection event
+    socketInstance.on('connect', () => {
+      // 4. Once connected and if user data exists, send the user's identity
+      if (userData) {
+        socketInstance.emit('identity', { userId: userData._id });
       }
     });
 
-    socket?.on("update-status", ({ orderId, shopId, status, userId }) => {
-      if (userId == userData._id) {
-        dispatch(updateRealtimeOrderStatus({ orderId, shopId, status }));
-      }
-    });
-
+    // 5. Cleanup function: runs when the component unmounts or before the next effect runs
     return () => {
-      socket?.off("newOrder");
-      socket?.off("update-status");
+      socketInstance.disconnect();
     };
-  }, [socket]);
+  }, [userData?._id]); // Re-run effect if the user's ID changes
 
   return (
     <div className="w-full min-h-screen bg-[#E0E7FF] flex justify-center px-4">
