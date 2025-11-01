@@ -8,3 +8,5 @@ const userRouter=express.Router()
 userRouter.get("/current",isAuth,getCurrentUser)
 userRouter.post('/update-location',isAuth,updateUserLocation)
 export default userRouter
+
+// Developed By Tarun Saxena
