@@ -53,3 +53,5 @@ userSchema.index({location:'2dsphere'})
 
 const User=mongoose.model("User",userSchema)
 export default User
+
+// Developed By Tarun Saxena
