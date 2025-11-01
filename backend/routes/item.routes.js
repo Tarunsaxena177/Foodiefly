@@ -17,3 +17,5 @@ itemRouter.get("/get-by-shop/:shopId",isAuth,getItemsByShop)
 itemRouter.get("/search-items",isAuth,searchItems)
 itemRouter.post("/rating",isAuth,rating)
 export default itemRouter
+
+// Developed By Tarun Saxena
