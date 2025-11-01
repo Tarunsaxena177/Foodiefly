@@ -62,3 +62,5 @@ function OwnerItemCard({ data }) {
 }
 
 export default OwnerItemCard;
+
+// Developed By Tarun Saxena
