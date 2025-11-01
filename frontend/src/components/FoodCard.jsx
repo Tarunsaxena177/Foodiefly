@@ -118,3 +118,5 @@ function FoodCard({ data }) {
 }
 
 export default FoodCard;
+
+// Developed By Tarun Saxena
