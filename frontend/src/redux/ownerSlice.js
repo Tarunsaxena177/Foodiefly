@@ -14,3 +14,5 @@ const ownerSlice=createSlice({
 
 export const {setMyShopData}=ownerSlice.actions
 export default ownerSlice.reducer
+
+// Developed By Tarun Saxena
