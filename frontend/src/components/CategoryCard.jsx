@@ -19,3 +19,5 @@ function CategoryCard({ name, image, onClick }) {
 }
 
 export default CategoryCard;
+
+// Developed By Tarun Saxena
