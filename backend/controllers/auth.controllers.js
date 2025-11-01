@@ -31,7 +31,6 @@ export const signUp=async (req,res) => {
             sameSite:"none",
             maxAge:7*24*60*60*1000,
             httpOnly:true,
-            path: "/"
         })
   
         return res.status(201).json(user)
@@ -58,7 +57,6 @@ export const signIn=async (req,res) => {
         res.cookie("token",token,{
             secure:true,
             sameSite:"none",
-            path: "/",
             maxAge:7*24*60*60*1000,
             httpOnly:true
         })
@@ -157,3 +155,5 @@ export const googleAuth=async (req,res) => {
          return res.status(500).json(`googleAuth error ${error}`)
     }
 }
+
+// Developed By Tarun Saxena
