@@ -23,3 +23,5 @@ export const categories = [
     { "category": "Fast Food", "image": image10 },
     { "category": "All", "image": image11 }
 ]
+
+// Developed By Tarun Saxena
