@@ -12,3 +12,5 @@ shopRouter.get("/get-my",isAuth,getMyShop)
 shopRouter.get("/get-by-city/:city",isAuth,getShopByCity)
 
 export default shopRouter
+
+// Developed By Tarun Saxena
