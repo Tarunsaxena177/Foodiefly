@@ -57,3 +57,5 @@ export const getShopByCity=async (req,res) => {
         return res.status(500).json({message:`get shop by city error ${error}`})
     }
 }
+
+// Developed By Tarun Saxena
